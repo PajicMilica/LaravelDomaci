@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfesorsTable extends Migration
+class MakePredmetEspbNullable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateProfesorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('profesors', function (Blueprint $table) {
-            $table->id()->unique();
-            $table->string('name');
-            $table->string('lastName')->nullable(); 
-            $table->timestamps();
+        Schema::table('predmets', function (Blueprint $table) {
+            $table->string('espb')->nullable();
         });
+        
     }
 
     /**
@@ -28,6 +26,8 @@ class CreateProfesorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profesors');
+        Schema::table('predmets', function (Blueprint $table) {
+            $table ->dropIfExists('espb');
+        });
     }
 }

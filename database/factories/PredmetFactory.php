@@ -15,7 +15,7 @@ class PredmetFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'espb' => $this->faker->title(),
+            'espb' => $this->faker->word(),
         ];
     }
 }

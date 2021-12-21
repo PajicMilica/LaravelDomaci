@@ -16,7 +16,6 @@ class CreatePredmetsTable extends Migration
         Schema::create('predmets', function (Blueprint $table) {
             $table->id()->unique();
             $table->string('name')->nullable();
-            $table->string('espb')->nullable();
             $table->timestamps();
         });
     }

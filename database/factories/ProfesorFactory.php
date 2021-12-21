@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class ProfesorFactory extends Factory
 {
@@ -14,8 +15,8 @@ class ProfesorFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word(),
-            'lastName'=>$this->faker->title()
-        ];
-    }
+            'name' => $this->faker->name(),
+            'lastName'=>Str::random(10),
+            'gender'=>$this->faker->word()
+        ];    }
 }
