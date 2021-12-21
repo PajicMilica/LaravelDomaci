@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Predmet;
+use App\Models\Profesor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProfesorPredmetFactory extends Factory
@@ -14,7 +16,8 @@ class ProfesorPredmetFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'predmet_id' => Predmet::factory(),
+            'profesor_id' => Profesor::factory(),
         ];
     }
 }

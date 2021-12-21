@@ -13,7 +13,6 @@ class AddColumnPredmetIdToProfesorPredmetTable extends Migration
      */
     public function up()
     {
-
         Schema::table('profesor_predmets', function (Blueprint $table) {
             $table->foreignId('predmet_id');
         });
@@ -27,8 +26,8 @@ class AddColumnPredmetIdToProfesorPredmetTable extends Migration
      */
     public function down()
     {
-        Schema::table('predmet', function (Blueprint $table) {
-            //
+        Schema::table('profesor_predmets', function (Blueprint $table) {
+                $table->dropIfExists('predmet_id');
         });
     }
 }

@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Predmet;
+use App\Models\Profesor;
+use App\Models\profesorPredmet;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +16,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Predmet::truncate();
+        Profesor::truncate();
+        profesorPredmet::truncate();
+
+        $profesors1 = Profesor::factory()->create();
+        $profesors2 = Profesor::factory()->create();
+        $profesors3 = Profesor::factory()->create();
+
+        $pp1 = Predmet::factory()->create();
+        $pp2 = Predmet::factory()->create();
+        $pp3 = Predmet::factory()->create();
+
+
+        profesorPredmet::factory(5)->create([
+            'profesor_id'=>$profesors1->id,
+            'predmet_id'=>$pp1->id,
+        ]);
+
+        profesorPredmet::factory(2)->create([
+            'profesor_id'=>$profesors2->id,
+            'predmet_id'=>$pp2->id,
+        ]);
+        profesorPredmet::factory(2)->create([
+            'profesor_id'=>$profesors3->id,
+            'predmet_id'=>$pp3->id,
+        ]);
     }
 }
