@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Predmet extends Model
 {
     use HasFactory;
+
+    public function profesorPredmets()
+    {
+        return $this->hasMany(profesorPredmets::class);
+    }
 }

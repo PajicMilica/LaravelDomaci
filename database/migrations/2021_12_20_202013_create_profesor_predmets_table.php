@@ -14,9 +14,10 @@ class CreateProfesorPredmetsTable extends Migration
     public function up()
     {
         Schema::create('profesor_predmets', function (Blueprint $table) {
-            $table->id()->unique();
+            $table->id();
             $table->foreignId('profesor_id');
             $table->timestamps();
+            $table->timestamp('pusblished_at')->nullable();
         });
     }
 
