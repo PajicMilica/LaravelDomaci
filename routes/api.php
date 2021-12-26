@@ -3,6 +3,9 @@
 use App\Http\Controllers\profesorPredmetController;
 use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\API\AuthController;
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,12 +28,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/profesor', [ProfesorController::class, 'index']);
 Route::get('/profesor/{id}', [ProfesorController::class, 'show']);
-
-//Route::get('/profesorPredmets', [profesorPredmetController::class, 'index']);
-//Route::get('/profesorPredmets/{id}', [profesorPredmetController::class, 'show']);
-
-//Route::post('/profesors', [ProfesorController::class, 'addProfesor']);
-//Route::put('/profesors/{profesor}', [ProfesorController::class, 'editProfesor']);
-
-
 Route::resource('profesorPredmets', profesorPredmetController::class);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/profile', function (Request $request) {
+        return auth()->user();
+    });
+
+    Route::resource('pp', profesorPredmetController::class)->only(['update', 'store', 'destroy']);
+
+    Route::post('/logout', [AuthController::class, 'logout']);
+});
+
+Route::resource('pp', profesorPredmetController::class)->only(['index']);

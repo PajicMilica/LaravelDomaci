@@ -7,37 +7,7 @@ use Illuminate\Http\Request;
 
 class ProfesorController extends Controller
 {
-    /* public function addProfesor(){
-        request() -> validate([
-            'name' => 'required',
-            'lastName' => 'required',
-            'gender' => 'required'
-        ]);
-        return Profesor::create([
-            'Ime' => request('Ime'),
-            'Prezime' => request('Prezime'),
-            'gender' => 'required'
-        ]);
-    }
-
-    public function editProfesor(Profesor $prof){
-        request() -> validate([
-            'name' => 'required',
-            'lastName' => 'required',
-            'gender' => 'required'
-        ]);
-        
-        $success = $prof -> update([
-            'name' => 'required',
-            'lastName' => 'required',
-            'gender' => 'required'
-        ]);
-    
-        return [
-            'success' => $success
-        ];
-    }*/
-
+     
 
     /**
      * Display a listing of the resource.

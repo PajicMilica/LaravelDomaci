@@ -11,6 +11,6 @@ class Predmet extends Model
 
     public function profesorPredmets()
     {
-        return $this->hasMany(profesorPredmets::class);
+        return $this->hasMany(profesorPredmet::class);
     }
 }
