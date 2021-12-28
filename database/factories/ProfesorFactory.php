@@ -14,9 +14,6 @@ class ProfesorFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'name' => $this->faker->name(),
-            'lastName'=>Str::random(10),
-            'gender'=>$this->faker->word()
-        ];    }
+        //
+    }
 }

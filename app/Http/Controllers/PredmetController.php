@@ -14,7 +14,8 @@ class PredmetController extends Controller
      */
     public function index()
     {
-        //
+        $p=Predmet::all();
+        return $p;
     }
 
     /**
@@ -35,7 +36,7 @@ class PredmetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
     }
 
     /**
@@ -44,9 +45,12 @@ class PredmetController extends Controller
      * @param  \App\Models\Predmet  $predmet
      * @return \Illuminate\Http\Response
      */
-    public function show(Predmet $predmet)
+    public function show($predmet_id)
     {
-        //
+        $predmet = Predmet::find($predmet_id);
+        if (is_null($predmet))
+            return response()->json('Data not found', 404);
+       return response()->json($predmet);
     }
 
     /**

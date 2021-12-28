@@ -18,6 +18,7 @@ class ProfesorResource extends JsonResource
         return [
             'id' => $this->resource->id,
             'name' => $this->resource->name,
+            'lastName' => $this->resource->lastName,
         ];
     }
 }

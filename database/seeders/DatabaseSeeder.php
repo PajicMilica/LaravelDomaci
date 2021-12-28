@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
+      /*  User::truncate();
         Predmet::truncate();
         Profesor::truncate();
         profesorPredmet::truncate();
@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         $profesors2 = Profesor::factory()->create();
         $profesors3 = Profesor::factory()->create();
 
+        
         $pp1 = Predmet::factory()->create();
         $pp2 = Predmet::factory()->create();
         $pp3 = Predmet::factory()->create();
@@ -44,8 +45,15 @@ class DatabaseSeeder extends Seeder
         profesorPredmet::factory(2)->create([
             'profesor_id'=>$profesors3->id,
             'predmet_id'=>$pp1->id,
+        ]);*/
+
+        $this->call([
+            PredmetSeeder::class,
+            ProfesorSeeder::class,
+            profesorPredmetSeeder::class
         ]);
 
+           
        
     }
 }

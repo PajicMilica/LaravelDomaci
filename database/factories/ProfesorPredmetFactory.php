@@ -15,9 +15,6 @@ class ProfesorPredmetFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'predmet_id' => Predmet::factory(),
-            'profesor_id' => Profesor::factory(),
-        ];
+        //
     }
 }

@@ -54,7 +54,7 @@ class profesorPredmetController extends Controller
             'profesor_id' => $request->profesor_id,
         ]);
 
-        return response()->json(['Post is created successfully.', new profesorPredmetResource($pp)]);
+        return response()->json(['profesorPredmet is created successfully.', new profesorPredmetResource($pp)]);
     }
 
     /**
@@ -86,8 +86,11 @@ class profesorPredmetController extends Controller
      * @param  \App\Models\profesorPredmet  $profesorPredmet
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, profesorPredmet $pp)
+    public function update(Request $request, $id)
     {
+
+        $pp=profesorPredmet ::find($id);
+
         $validator = Validator::make($request->all(), [
             'predmet_id' => 'required',
             'profesor_id' => 'required'

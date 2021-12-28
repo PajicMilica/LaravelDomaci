@@ -18,6 +18,7 @@ class PredmetResource extends JsonResource
         return [
             'id' => $this->resource->id,
             'name' => $this->resource->name,
+            'espb'=>$this->resource->espb,
         ];
     }
 }

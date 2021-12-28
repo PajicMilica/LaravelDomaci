@@ -53,7 +53,7 @@ class ProfesorController extends Controller
         $profesor = Profesor::find($profesor_id);
         if (is_null($profesor))
             return response()->json('Data not found', 404);
-        return response()->json($profesor);
+        return response()->json();
     }
 
     /**

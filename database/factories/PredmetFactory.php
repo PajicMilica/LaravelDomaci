@@ -13,9 +13,6 @@ class PredmetFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'name' => $this->faker->name(),
-            'espb' => $this->faker->word(),
-        ];
+       //
     }
 }

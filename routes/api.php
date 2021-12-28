@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\profesorPredmetController;
 use App\Http\Controllers\ProfesorController;
+use App\Http\Controllers\PredmetController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\API\AuthController;
 
@@ -28,7 +29,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/profesor', [ProfesorController::class, 'index']);
 Route::get('/profesor/{id}', [ProfesorController::class, 'show']);
-Route::resource('profesorPredmets', profesorPredmetController::class);
+Route::get('/predmet', [PredmetController::class, 'index']);
+Route::get('/predmet/{id}', [PredmetController::class, 'show']);
+
+Route::resource('predaje', profesorPredmetController::class);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -38,9 +42,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         return auth()->user();
     });
 
-    Route::resource('pp', profesorPredmetController::class)->only(['update', 'store', 'destroy']);
+    Route::resource('predaje', profesorPredmetController::class)->only(['update', 'store', 'destroy']);
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });
 
-Route::resource('pp', profesorPredmetController::class)->only(['index']);
+Route::resource('predaje', profesorPredmetController::class)->only(['index']);
